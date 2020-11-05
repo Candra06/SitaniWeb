@@ -11,12 +11,12 @@ Project PPL Kelompok G - Aplikasi pengoptimalan penamaman cabai hingga panen
 
 Langkah instalasi :
 
-clone repository dari link https://github.com/Candra06/SitaniWeb.git
-buka terminal/cmd dan arahkan ke folder SitaniWeb
-jalankan perintah composer update
-buat database dengan nama sitani pada phpmyadmin
-ubah configurasi file .env (db_host, db_name, db_username, db_password,)
-jalankan perintah php artisan migrate
-jalankan perintah php artisan passport:install
-jalankan perintah php artisan serve
+1. clone repository dari link https://github.com/Candra06/SitaniWeb.git
+2. buka terminal/cmd dan arahkan ke folder SitaniWeb
+3. jalankan perintah composer update
+4. buat database dengan nama sitani pada phpmyadmin
+5. ubah configurasi file .env (db_host, db_name, db_username, db_password,)
+6. jalankan perintah php artisan migrate
+7. jalankan perintah php artisan passport:install
+8. jalankan perintah php artisan serve
 Let's Code
