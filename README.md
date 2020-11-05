@@ -19,4 +19,4 @@ Langkah instalasi :
 6. jalankan perintah php artisan migrate
 7. jalankan perintah php artisan passport:install
 8. jalankan perintah php artisan serve
-Let's Code
+9. Let's Code
