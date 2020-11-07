@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard/index');
+Route::get('/', 'UserController@home');
+Route::post('/login', 'UserController@login');
+
+Route::group(['middleware' => 'CheckAdmin'], function () {
+    Route::get('/logout', 'UserController@logout');
+    Route::get('/dashboard', 'UserController@dashboard');
 });
