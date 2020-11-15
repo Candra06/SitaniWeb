@@ -18,7 +18,7 @@
             </div>
             <ul class="nav nav-primary">
                 <li class="nav-item {{  Request::segment(1) == 'dashboard' ? 'active' : ''}}">
-                    <a data-toggle="collapse" href="{{ url('/dashboard')}}" class="collapsed" >
+                    <a href="{{ url('/dashboard')}}" class="collapsed" >
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>

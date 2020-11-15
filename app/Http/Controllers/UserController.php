@@ -54,8 +54,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
-            'email' => 'email|required',
+            'nama' => 'max:50|required',
+            'email' => 'max:50|email|required',
             'password' => 'required',
             'kecamatan' => 'required',
             'telepon' => 'required',
@@ -113,8 +113,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required',
-            'email' => '50|email|required',
+            'nama' => 'max:50|required',
+            'email' => 'max:50|email|required',
             'password' => 'required',
             'kecamatan' => 'required',
             'telepon' => 'required',
