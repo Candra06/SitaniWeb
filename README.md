@@ -18,5 +18,6 @@ Langkah instalasi :
 5. ubah configurasi file .env (db_host, db_name, db_username, db_password,)
 6. jalankan perintah php artisan migrate
 7. jalankan perintah php artisan passport:install
-8. jalankan perintah php artisan serve
-9. Let's Code
+8. jalankan perintah composer require doctrine/dbal
+9. jalankan perintah php artisan serve
+10. Let's Code
