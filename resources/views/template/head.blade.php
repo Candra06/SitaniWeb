@@ -23,5 +23,6 @@
 	<link rel="stylesheet" href="{{url('/')}}/assets/css/atlantis.min.css">
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link rel="stylesheet" href="{{url('/')}}/assets/css/demo.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/css/demo.css">
+    <script src="{{ url('/') }}/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 </head>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/atlantis.css">
     <!-- Sweet Alert -->
-	<script src="{{ url('/') }}/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="{{ url('/') }}/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 </head>
 
 <body class="login">
@@ -40,28 +40,37 @@
         <div class="container container-login animated fadeIn">
             <h3 class="text-center">Sign In To Admin</h3>
             @if (session('message'))
-               <script>
-                   swal("{{session('message')}}", {
-						buttons: false,
-						timer: 3000,
-					});
-               </script>
+                <script>
+                    swal("{{ session('message') }}", {
+                        buttons: false,
+                        timer: 3000,
+                    });
+
+                </script>
             @endif
             <div class="login-form">
                 <form action="{{ url('login') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="username" class="placeholder"><b>Username</b></label>
-                        <input id="username" name="username" type="text" class="form-control" required>
+                        <input id="username" name="email" type="email"
+                            class="form-control @error('email') is-invalid @enderror" required>
+                        @error('email')
+                            <label class="mt-1" style="color: red">{{ $message }}</label>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="password" class="placeholder"><b>Password</b></label>
-                        <a href="#" class="link float-right">Forget Password ?</a>
+
                         <div class="position-relative">
-                            <input id="password" name="password" type="password" class="form-control" required>
+                            <input id="password" name="password" type="password"
+                                class="form-control @error('password') is-invalid @enderror" required>
                             <div class="show-password">
                                 <i class="icon-eye"></i>
                             </div>
+                            @error('password')
+                                <label class="mt-1" style="color: red">{{ $message }}</label>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group form-action-d-flex mb-3">
@@ -74,10 +83,10 @@
 
                     </div>
                 </form>
-                <div class="login-account">
+                {{-- <div class="login-account">
                     <span class="msg">Don't have an account yet ?</span>
                     <a href="#" id="show-signup" class="link">Sign Up</a>
-                </div>
+                </div> --}}
             </div>
         </div>
 

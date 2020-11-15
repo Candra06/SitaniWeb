@@ -19,4 +19,5 @@ Route::post('/login', 'UserController@login');
 Route::group(['middleware' => 'CheckAdmin'], function () {
     Route::get('/logout', 'UserController@logout');
     Route::get('/dashboard', 'UserController@dashboard');
+    Route::resource('user', 'UserController');
 });

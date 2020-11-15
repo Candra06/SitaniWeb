@@ -31,7 +31,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $data = User::all();
+        return view('users.index', compact('data'));
     }
 
     /**
@@ -41,7 +42,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.add');
     }
 
     /**
@@ -52,7 +53,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'email|required',
+            'password' => 'required',
+            'kecamatan' => 'required',
+            'telepon' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $input['nama'] = $request['nama'];
+        $input['password'] = bcrypt($request['password']);
+        $input['email'] = $request['email'];
+        $input['kecamatan'] = $request['kecamatan'];
+        $input['alamat'] = $request['alamat'];
+        $input['telepon'] = $request['telepon'];
+        $input['username'] = '-';
+        $input['role'] = 'Petani';
+
+        try {
+            User::create($input);
+            return redirect('/user')->with('status', 'Berhasil menambahkan data');
+        } catch (\Throwable $th) {
+            return redirect('/user/create')->with('status', 'Gagal menambahkan data');
+        }
     }
 
     /**
@@ -63,7 +87,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = User::where('id', $id)->first();
+        return view('users.detail', compact('data'));
     }
 
     /**
@@ -74,7 +99,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::where('id', $id)->first();
+        return view('users.edit', compact('data'));
     }
 
     /**
@@ -86,7 +112,30 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'email' => 'email|required',
+            'password' => 'required',
+            'kecamatan' => 'required',
+            'telepon' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $input['nama'] = $request['nama'];
+        $input['password'] = bcrypt($request['password']);
+        $input['email'] = $request['email'];
+        $input['kecamatan'] = $request['kecamatan'];
+        $input['alamat'] = $request['alamat'];
+        $input['telepon'] = $request['telepon'];
+        $input['username'] = $request['email'];
+        $input['role'] = 'Petani';
+
+        try {
+            User::where('id',$id)->update($input);
+            return redirect('/user')->with('status', 'Berhasil mengubah data');
+        } catch (\Throwable $th) {
+            return redirect('/user/create')->with('status', 'Gagal mengubah data');
+        }
     }
 
     /**
@@ -97,12 +146,21 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            User::where('id', $id)->delete();
+            return redirect('/user')->with('status', 'Berhasil menghapus data');
+        } catch (\Throwable $th) {
+            return redirect('/user')->with('status', 'Gagal menghapus data');
+        }
     }
 
     public function login(Request $request)
     {
-        $data = User::where('email', $request->username)->first();
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        $data = User::where('email', $request->email)->first();
         if ($data) {
             if ($data->role != 'Admin') {
                 return redirect('/')->with('message', 'Anda bukan admin!');
@@ -113,7 +171,7 @@ class UserController extends Controller
                     session()->put('nama', $data->nama);
                     session()->put('username', $data->username);
                     session()->put('id', $data->id);
-                    return redirect('dashboard');
+                    return redirect('dashboard')->with('message', 'Selamat datang!');
                 } else {
                     return redirect('/')->with('message', 'Password salah!');
                 }
