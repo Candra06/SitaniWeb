@@ -114,11 +114,12 @@ class UserController extends Controller
     {
         $request->validate([
             'nama' => 'required',
-            'email' => 'email|required',
+            'email' => '50|email|required',
             'password' => 'required',
             'kecamatan' => 'required',
             'telepon' => 'required',
             'alamat' => 'required',
+            'role' => 'required',
         ]);
 
         $input['nama'] = $request['nama'];
@@ -128,13 +129,28 @@ class UserController extends Controller
         $input['alamat'] = $request['alamat'];
         $input['telepon'] = $request['telepon'];
         $input['username'] = $request['email'];
-        $input['role'] = 'Petani';
+        $input['role'] = $request['role'];
+        if (session('id') == $id) {
 
-        try {
-            User::where('id',$id)->update($input);
-            return redirect('/user')->with('status', 'Berhasil mengubah data');
-        } catch (\Throwable $th) {
-            return redirect('/user/create')->with('status', 'Gagal mengubah data');
+            try {
+                User::where('id', $id)->update($input);
+                session()->put('email', $input['email']);
+                session()->put('nama', $input['nama']);
+                session()->put('username', $input['username']);
+                return redirect('/dashboard')->with('status', 'Berhasil mengubah data');
+            } catch (\Throwable $th) {
+                return $th;
+                return redirect('/user/' . $id . '/edit')->with('status', 'Gagal mengubah data');
+            }
+        } else {
+
+            try {
+                User::where('id', $id)->update($input);
+                return redirect('/user')->with('status', 'Berhasil mengubah data');
+            } catch (\Throwable $th) {
+                return $th;
+                return redirect('/user/' . $id . '/edit')->with('status', 'Gagal mengubah data');
+            }
         }
     }
 
@@ -176,10 +192,8 @@ class UserController extends Controller
                     return redirect('/')->with('message', 'Password salah!');
                 }
             }
-
         } else {
             return redirect('/')->with('message', 'Email tidak teredaftar!');
         }
-
     }
 }
