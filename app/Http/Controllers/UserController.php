@@ -137,7 +137,7 @@ class UserController extends Controller
                 session()->put('email', $input['email']);
                 session()->put('nama', $input['nama']);
                 session()->put('username', $input['username']);
-                return redirect('/dashboard')->with('status', 'Berhasil mengubah data');
+                return redirect('/dashboard')->with('message', 'Berhasil mengubah data');
             } catch (\Throwable $th) {
                 return $th;
                 return redirect('/user/' . $id . '/edit')->with('status', 'Gagal mengubah data');
