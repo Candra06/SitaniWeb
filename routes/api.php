@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', 'API\UserController@login');
+Route::post('forgotPassword', 'API\UserController@forgotPass');
+Route::post('requestPass/{id}', 'API\UserController@requestPass');
 Route::post('register', 'API\UserController@register');
 
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::post('details', 'API\UserController@detail');
+    Route::post('details', 'API\UserController@show');
+    Route::post('update', 'API\UserController@update');
 });

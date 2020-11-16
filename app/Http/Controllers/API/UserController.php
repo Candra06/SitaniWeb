@@ -28,16 +28,43 @@ class UserController extends Controller
 
     }
 
+    public function forgotPass(Request $request)
+    {
+        try {
+            $data = User::where('email', $request['email'])->first();
+            if ($data) {
+                return response()->json(['status' => '200','data' => 'Email ditemukan', 'id' => $data->id], 200);
+            } else {
+                return response()->json(['status' => '400','data' => 'Email tidak terdaftar'], 200);
+            }
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th], 401);
+        }
+    }
+
+    public function requestPass(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required|max:50'
+        ]);
+        try {
+            $up['password'] = bcrypt($request['passsword']);
+            User::where('id', $id)->update($up);
+            return response()->json(['data' => 'Berhasil mengubah password'], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th], 400);
+        }
+    }
+
     public function register(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
-            'email' => 'email|required',
+            'nama' => 'mx:50|required',
+            'email' => 'mx:50|email|required',
             'password' => 'required',
             'kecamatan' => 'required',
             'telepon' => 'required',
             'alamat' => 'required',
-            'username' => 'required',
         ]);
 
         $input['nama'] = $request['nama'];
@@ -46,18 +73,45 @@ class UserController extends Controller
         $input['kecamatan'] = $request['kecamatan'];
         $input['alamat'] = $request['alamat'];
         $input['telepon'] = $request['telepon'];
-        $input['username'] = $request['username'];
+        $input['username'] = $request['email'];
         $input['role'] = 'Petani';
 
         try {
             User::create($input);
             return response()->json(['data' => 'Register berhasil'], 200);
         } catch (\Throwable $th) {
-            return response()->json(['error' => $th], 200);
+            return response()->json(['error' => $th], 400);
         }
     }
 
-    public function detail()
+    public function update(Request $request)
+    {
+        $request->validate([
+            'nama' => 'max:50|required',
+            'email' => 'max:50|email|required',
+            'password' => 'required',
+            'kecamatan' => 'required',
+            'telepon' => 'required',
+            'alamat' => 'required',
+        ]);
+        $id = Auth::user()->id;
+        $input['nama'] = $request['nama'];
+        $input['password'] = bcrypt($request['password']);
+        $input['email'] = $request['email'];
+        $input['kecamatan'] = $request['kecamatan'];
+        $input['alamat'] = $request['alamat'];
+        $input['telepon'] = $request['telepon'];
+        $input['username'] = $request['email'];
+
+        try {
+            User::where('id', $id)->update($input);
+            return response()->json(['data' => 'Update berhasil'], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['error' => $th], 400);
+        }
+    }
+
+    public function show()
     {
         $user = Auth::user();
         // $role =  Auth::user()->role;
