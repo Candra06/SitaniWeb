@@ -47,6 +47,59 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item {{ Request::segment(1) == 'pupuk' ? 'active' : '' }} submenu">
+                        <a data-toggle="collapse" href="#pupuk">
+                            <i class="fas fa-leaf"></i>
+                            <p>Pupuk dan Pestisida</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse {{ Request::segment(1) == 'pupuk' || Request::segment(1) == 'pupuk' ? 'show' : '' }}" id="pupuk">
+                            <ul class="nav nav-collapse">
+                                <li class="{{ Request::segment(1) == 'pupuk' ? 'active' : '' }}">
+                                    <a href="{{ url('/pupuk')}}">
+                                        <span class="sub-item ">Data Pupuk dan Pestisida</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item {{ Request::segment(1) == 'punyakit' || Request::segment(1) == 'penanganan' ? 'active' : '' }} submenu">
+                        <a data-toggle="collapse" href="#tables">
+                            <i class="fas fa-bug"></i>
+                            <p>Penyakit dan Hama</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse {{ Request::segment(1) == 'penyakit' || Request::segment(1) == 'penanganan' ? 'show' : '' }}" id="tables">
+                            <ul class="nav nav-collapse">
+                                <li class="{{ Request::segment(1) == 'penyakit' ? 'active' : '' }}">
+                                    <a href="{{ url('/penyakit')}}">
+                                        <span class="sub-item ">Data Penyakit</span>
+                                    </a>
+                                </li>
+                                <li class="{{ Request::segment(1) == 'penanganan' ? 'active' : '' }}">
+                                    <a href="{{ url('/penanganan')}}">
+                                        <span class="sub-item ">Data Penanganan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item {{ Request::segment(1) == 'cabai' ? 'active' : '' }} submenu">
+                        <a data-toggle="collapse" href="#forms">
+                            <i class="fas fa-air-freshener"></i>
+                            <p>Cabai</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse {{ Request::segment(1) == 'cabai'  ? 'show' : '' }}" id="forms">
+                            <ul class="nav nav-collapse">
+                                <li class="{{ Request::segment(1) == 'cabai' ? 'active' : '' }}">
+                                    <a href="{{ url('/cabai')}}">
+                                        <span class="sub-item ">Data Cabai</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
             </ul>
         </div>

@@ -1,5 +1,5 @@
 <!--   Core JS Files   -->
-<script src="{{url('/')}}/assets/js/core/jquery.3.2.1.min.js"></script>
+
 <script src="{{url('/')}}/assets/js/core/popper.min.js"></script>
 <script src="{{url('/')}}/assets/js/core/bootstrap.min.js"></script>
 
@@ -32,7 +32,7 @@
 
 <!-- Atlantis JS -->
 <script src="{{url('/')}}/assets/js/atlantis.min.js"></script>
-
+<script src="{{ url('/') }}/assets/dropify/dist/js/dropify.min.js"></script>
 <!-- Datatables -->
 <script src="{{url('/')}}/assets/js/plugin/datatables/datatables.min.js"></script>
 

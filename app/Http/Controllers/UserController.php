@@ -11,7 +11,7 @@ class UserController extends Controller
     public function home()
     {
         // dd(session('login'));
-        return view('welcome');
+        return view('login');
     }
 
     public function dashboard()
@@ -119,7 +119,7 @@ class UserController extends Controller
             'kecamatan' => 'required',
             'telepon' => 'required',
             'alamat' => 'required',
-            'role' => 'required',
+            // 'role' => 'required',
         ]);
 
         $input['nama'] = $request['nama'];
@@ -129,7 +129,7 @@ class UserController extends Controller
         $input['alamat'] = $request['alamat'];
         $input['telepon'] = $request['telepon'];
         $input['username'] = $request['email'];
-        $input['role'] = $request['role'];
+        // $input['role'] = $request['role'];
         if (session('id') == $id) {
 
             try {

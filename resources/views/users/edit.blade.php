@@ -122,7 +122,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password">Role</label>
                                             <select class="form-control" name="role" id="exampleFormControlSelect1">
@@ -136,7 +136,7 @@
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                             </div>

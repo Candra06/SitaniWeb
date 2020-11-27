@@ -20,4 +20,9 @@ Route::group(['middleware' => 'CheckAdmin'], function () {
     Route::get('/logout', 'UserController@logout');
     Route::get('/dashboard', 'UserController@dashboard');
     Route::resource('user', 'UserController');
+    Route::resource('penyakit', 'PenyakitController');
+    Route::resource('pupuk', 'PupukController');
+    Route::resource('cabai', 'CabaiController');
+    Route::get('penanganan', 'PenyakitController@detailPenanganan');
+    Route::post('penanganan', 'PenyakitController@savePenanganan');
 });

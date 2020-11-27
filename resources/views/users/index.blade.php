@@ -44,17 +44,18 @@
                                             <th>Email</th>
                                             <th>Telepon</th>
                                             <th>Role</th>
-                                            <th>Aksi</th>
+                                            {{-- <th>Aksi</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td><a href="{{ url('user/'. $item->id )}}">{{ $item->nama }}</a></td>
+                                                {{-- <td><a href="{{ url('user/'. $item->id )}}">{{ $item->nama }}</a></td> --}}
+                                                <td>{{ $item->nama }}</td>
                                                 <td>{{ $item->email}}</td>
                                                 <td>{{ $item->telepon}}</td>
                                                 <td>{{ $item->role }}</td>
-                                                <td class="mt-auto">
+                                                {{-- <td class="mt-auto">
 
                                                     <form action="{{ url('user/'.$item->id) }}" method="POST" class="form-inline mt-auto">
                                                         @method('delete')
@@ -63,7 +64,7 @@
                                                         <a href="{{ url('/user/'.$item->id.'/edit')}}" class="btn btn-xs btn-info mr-2 "><i class="fas fa-edit"></i></a>
                                                         <button type="submit" class="btn btn-xs btn-primary"><i class="fas fa-trash"></i></button>
                                                     </form>
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>

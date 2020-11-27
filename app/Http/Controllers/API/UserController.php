@@ -48,7 +48,7 @@ class UserController extends Controller
             'password' => 'required|max:50'
         ]);
         try {
-            $up['password'] = bcrypt($request['passsword']);
+            $up['password'] = bcrypt($request['password']);
             User::where('id', $id)->update($up);
             return response()->json(['data' => 'Berhasil mengubah password'], 200);
         } catch (\Throwable $th) {
@@ -59,8 +59,8 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'nama' => 'mx:50|required',
-            'email' => 'mx:50|email|required',
+            'nama' => 'max:50|required',
+            'email' => 'max:50|email|required',
             'password' => 'required',
             'kecamatan' => 'required',
             'telepon' => 'required',
