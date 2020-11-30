@@ -14,7 +14,8 @@ class CabaiController extends Controller
      */
     public function index()
     {
-        //
+        $data = Cabai::all();
+        return view('cabai.index', compact('data'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CabaiController extends Controller
      */
     public function create()
     {
-        //
+        return view('cabai.add');
     }
 
     /**
@@ -35,7 +36,24 @@ class CabaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        $request->validate([
+            'jenis_cabai' => 'required',
+            'nama_latin' => 'required',
+            'estimasi_panen' => 'required',
+        ]);
+
+        $input['jenis_cabai'] = $request['jenis_cabai'];
+        $input['nama_latin'] = $request['nama_latin'];
+        $input['estimasi_panen'] = $request['estimasi_panen'];
+
+        try {
+            Cabai::create($input);
+            return redirect('/cabai')->with('status', 'Berhasil menambah data');
+        } catch (\Throwable $th) {
+            return $th;
+            return redirect('/cabai/create')->with('status', 'Ggagal menambah data');
+        }
     }
 
     /**
@@ -46,7 +64,7 @@ class CabaiController extends Controller
      */
     public function show(Cabai $cabai)
     {
-        //
+        return view('cabai.detail', compact('cabai'));
     }
 
     /**
@@ -57,7 +75,7 @@ class CabaiController extends Controller
      */
     public function edit(Cabai $cabai)
     {
-        //
+        return view('cabai.edit', compact('cabai'));
     }
 
     /**
@@ -69,7 +87,22 @@ class CabaiController extends Controller
      */
     public function update(Request $request, Cabai $cabai)
     {
-        //
+        $request->validate([
+            'jenis_cabai' => 'required',
+            'nama_latin' => 'required',
+            'estimasi_panen' => 'required',
+        ]);
+
+        $input['jenis_cabai'] = $request['jenis_cabai'];
+        $input['nama_latin'] = $request['nama_latin'];
+        $input['estimasi_panen'] = $request['estimasi_panen'];
+
+        try {
+            Cabai::where('id', $cabai->id)->update($input);
+            return redirect('/cabai')->with('status', 'Berhasil mengubah data');
+        } catch (\Throwable $th) {
+            return redirect('/cabai/'.$cabai->id.'/edit')->with('status', 'Gagal mengubah data');
+        }
     }
 
     /**

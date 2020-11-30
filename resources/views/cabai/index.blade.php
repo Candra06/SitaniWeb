@@ -10,7 +10,7 @@
                         <h5 class="text-white op-7 mb-2">Free Bootstrap 4 Admin Dashboard</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="{{ url('/user/create') }}" class="btn btn-secondary btn-round">Tambah Data</a>
+                        <a href="{{ url('/cabai/create') }}" class="btn btn-secondary btn-round">Tambah Data</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                                             <th>Nama</th>
                                             <th>Nama Latin</th>
                                             <th>Estimasi Panen</th>
-                                            {{-- <th>Aksi</th> --}}
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,16 +53,16 @@
                                                 <td>{{ $item->jenis_cabai }}</td>
                                                 <td>{{ $item->nama_latin}}</td>
                                                 <td>{{ $item->estimasi_panen}}</td>
-                                                {{-- <td class="mt-auto">
-
-                                                    <form action="{{ url('user/'.$item->id) }}" method="POST" class="form-inline mt-auto">
+                                                <td class="mt-auto">
+                                                    <a href="{{ url('/cabai/'.$item->id.'/edit')}}" class="btn btn-xs btn-info mr-2 "><i class="fas fa-edit"></i></a>
+                                                    {{-- <form action="{{ url('user/'.$item->id) }}" method="POST" class="form-inline mt-auto">
                                                         @method('delete')
                                                         @csrf
                                                         <input type="hidden" name="id" value="">
                                                         <a href="{{ url('/user/'.$item->id.'/edit')}}" class="btn btn-xs btn-info mr-2 "><i class="fas fa-edit"></i></a>
                                                         <button type="submit" class="btn btn-xs btn-primary"><i class="fas fa-trash"></i></button>
-                                                    </form>
-                                                </td> --}}
+                                                    </form> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

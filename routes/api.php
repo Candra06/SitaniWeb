@@ -22,4 +22,6 @@ Route::post('register', 'API\UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'API\UserController@show');
     Route::post('update', 'API\UserController@update');
+    Route::post('penyakit', 'API\PenyakitController@index');
+    Route::post('penyakit/{penyakit}', 'API\PenyakitController@show');
 });
