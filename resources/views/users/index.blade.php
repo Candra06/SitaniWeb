@@ -50,8 +50,8 @@
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
-                                                {{-- <td><a href="{{ url('user/'. $item->id )}}">{{ $item->nama }}</a></td> --}}
-                                                <td>{{ $item->nama }}</td>
+                                                <td><a href="{{ url('user/'. $item->id )}}">{{ $item->nama }}</a></td>
+                                                {{-- <td>{{ $item->nama }}</td> --}}
                                                 <td>{{ $item->email}}</td>
                                                 <td>{{ $item->telepon}}</td>
                                                 <td>{{ $item->role }}</td>

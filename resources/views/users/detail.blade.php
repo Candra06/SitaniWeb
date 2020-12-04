@@ -42,8 +42,10 @@
                                 <div class="name">{{$data->nama}}</div>
                                 <div class="job">{{$data->role}}</div>
                                 <div class="desc">{{$data->username}}</div>
-
-                                <div class="view-profile">
+                                @php
+                                    $akses = session('id');
+                                @endphp
+                                <div class="view-profile" style="display: {{ $akses == $data->id ? 'block' : 'none'}} ">
                                     <a href="{{ url('/user/'.$data->id.'/edit')}}" class="btn btn-secondary btn-block">Edit Data</a>
                                 </div>
                             </div>
@@ -99,7 +101,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="password">Role</label>
-                                        <p>{{$data->Role}}</p>
+                                        <p>{{$data->role}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

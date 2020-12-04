@@ -66,6 +66,21 @@ class PenyakitController extends Controller
 
     }
 
+    public function penanganan($penanganan)
+    {
+        $data = Penanggulangan::leftJoin('penyakit', 'penyakit.id', 'penanggulangan.id_penyakit')
+        ->leftJoin('pupuk', 'pupuk.id', 'penanggulangan.id_pupuk')
+        ->where('penanggulangan.id', $penanganan)
+        ->select('pupuk.nama_pupuk', 'penyakit.nama', 'penanggulangan.aturan_pakai')
+        ->first();
+        if ($data) {
+            return response()->json(['status' => '200','data' => $data], 200);
+        } else {
+            return response()->json(['status' => '401','data' => 'Gagal mendapatkan data'], 401);
+        }
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -15,7 +15,13 @@ class PupukController extends Controller
      */
     public function index()
     {
-        //
+        $data = Pupuk::where('status', 'Show')->get();
+        if ($data) {
+            return response()->json(['status' => '200','data' =>$data], 200);
+        } else {
+            return response()->json(['status' => '401','data' => 'Gagal mendapatkan data'], 401);
+        }
+
     }
 
     /**
@@ -45,9 +51,14 @@ class PupukController extends Controller
      * @param  \App\Pupuk  $pupuk
      * @return \Illuminate\Http\Response
      */
-    public function show(Pupuk $pupuk)
+    public function show($pupuk)
     {
-        //
+        $data = Pupuk::where('id', $pupuk)->first();
+        if ($data) {
+            return response()->json(['status' => '200','data' =>$data], 200);
+        } else {
+            return response()->json(['status' => '401','data' => 'Gagal mendapatkan data'], 401);
+        }
     }
 
     /**
