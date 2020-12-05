@@ -27,4 +27,6 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('penyakit/penanggulangan/{penanganan}', 'API\PenyakitController@penanganan');
     Route::get('pupuk', 'API\PupukController@index');
     Route::get('pupuk/{pupuk}', 'API\PupukController@show');
+    Route::get('artikel', 'API\ArtikelController@index');
+    Route::get('artikel/{artikel}', 'API\ArtikelController@show');
 });

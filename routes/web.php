@@ -23,6 +23,7 @@ Route::group(['middleware' => 'CheckAdmin'], function () {
     Route::resource('penyakit', 'PenyakitController');
     Route::resource('pupuk', 'PupukController');
     Route::resource('cabai', 'CabaiController');
+    Route::resource('artikel', 'ArtikelController');
     Route::get('penanganan', 'PenyakitController@detailPenanganan');
     Route::post('penanganan', 'PenyakitController@savePenanganan');
 });

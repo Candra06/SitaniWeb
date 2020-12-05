@@ -82,6 +82,7 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path('pestisida') => storage_path('app/pestisida'),
         public_path('hama') => storage_path('app/hama'),
+        public_path('konten') => storage_path('app/konten'),
     ],
 
 ];
