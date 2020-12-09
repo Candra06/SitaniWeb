@@ -44,6 +44,8 @@ class ArtikelController extends Controller
             'judul' => 'max:50|required',
             'konten' => 'required',
             'status' => 'required',
+            'thumbnail' => 'required|max:60',
+            'gambar' => 'required',
         ]);
 
         $fileType = $request->file('gambar')->extension();
@@ -51,6 +53,7 @@ class ArtikelController extends Controller
         $input['judul'] = $request['judul'];
         $input['konten'] = $request['konten'];
         $input['status'] = $request['status'];
+        $input['thumbnail'] = $request['thumbnail'];
         $input['penulis'] = session('id');
         $input['gambar'] =  Storage::putFileAs('konten', $request->file('gambar'), $name);;
 
@@ -98,12 +101,15 @@ class ArtikelController extends Controller
             'judul' => 'max:50|required',
             'konten' => 'required',
             'status' => 'required',
+            'thumbnail' => 'required|max:60',
+            'gambar' => 'file|mimes:jpg,png,jpeg',
         ]);
         $fileType = $request->file('gambar')->extension();
         $name = Str::random(8) . '.' . $fileType;
         $input['judul'] = $request['judul'];
         $input['konten'] = $request['konten'];
         $input['status'] = $request['status'];
+        $input['thumbnail'] = $request['thumbnail'];
         $input['gambar'] =  Storage::putFileAs('konten', $request->file('gambar'), $name);;
 
         try {

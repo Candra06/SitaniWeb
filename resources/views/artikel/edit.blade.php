@@ -51,7 +51,7 @@
                         @csrf
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Tambah Data</h4>
+                                <h4 class="card-title">Edit Data</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -66,7 +66,17 @@
                                         </div>
 
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="email2">Thumbnail</label>
+                                            <input type="text" class="form-control @error('thumbnail') is-invalid @enderror"
+                                                value="{{ $artikel->thumbnail }}" name="thumbnail" placeholder="Thumbnail Artikel">
+                                            @error('thumbnail')
+                                                <label class="mt-1" style="color: red">{{ $message }}</label>
+                                            @enderror
+                                        </div>
 
+                                    </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">

@@ -62,6 +62,13 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
+                                        <label for="email2">Thumbnail</label>
+                                        <p>{{ $artikel->thumbnail }}</p>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label for="password">Dipublikasikan pada</label>
                                         <p>{{ date('Y-m-d H:i:s', strtotime($artikel->created_at))}}</p>
 

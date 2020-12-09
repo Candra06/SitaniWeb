@@ -67,7 +67,17 @@
 
                                     </div>
 
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="email2">Thumbnail</label>
+                                            <input type="text" class="form-control @error('thumbnail') is-invalid @enderror"
+                                                value="{{ old('thumbnail') }}" name="thumbnail" placeholder="thumbnail Artikel">
+                                            @error('thumbnail')
+                                                <label class="mt-1" style="color: red">{{ $message }}</label>
+                                            @enderror
+                                        </div>
 
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="password">Konten</label>
@@ -82,7 +92,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email2">Gambar</label>
-                                            <input type="file" name="gambar" id="input-file-now-custom-1"
+                                            <input type="file" required name="gambar" id="input-file-now-custom-1"
                                                 class="dropify @error('gambar') is-invalid @enderror" />
                                             @error('gambar')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
@@ -139,7 +149,7 @@
         </div>
     </div>
     <script>
-        
+
         $(document).ready(function() {
             $('#konten').summernote();
         });

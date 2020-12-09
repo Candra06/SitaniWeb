@@ -50,7 +50,7 @@
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td><a href="{{ url('artikel    /'. $item->id )}}">{{ $item->judul }}</a></td>
+                                                <td><a href="{{ url('artikel/'. $item->id )}}">{{ $item->judul }}</a></td>
                                                 <td>{{ $item->penulis}}</td>
                                                 <td>{{ date('Y-m-d H:i:s', strtotime($item->created_at))}}</td>
                                                 <td>{{ $item->status }}</td>
