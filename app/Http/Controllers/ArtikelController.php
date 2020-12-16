@@ -97,6 +97,7 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $artikel)
     {
+        // return $request;
         $request->validate([
             'judul' => 'max:50|required',
             'konten' => 'required',
@@ -104,20 +105,24 @@ class ArtikelController extends Controller
             'thumbnail' => 'required|max:60',
             'gambar' => 'file|mimes:jpg,png,jpeg',
         ]);
-        $fileType = $request->file('gambar')->extension();
-        $name = Str::random(8) . '.' . $fileType;
+        if ($request['gambar'] != null || $request['gambar'] != '') {
+            $fileType = $request->file('gambar')->extension();
+            $name = Str::random(8) . '.' . $fileType;
+            $input['gambar'] =  Storage::putFileAs('konten', $request->file('gambar'), $name);;
+        }
+
         $input['judul'] = $request['judul'];
         $input['konten'] = $request['konten'];
         $input['status'] = $request['status'];
         $input['thumbnail'] = $request['thumbnail'];
-        $input['gambar'] =  Storage::putFileAs('konten', $request->file('gambar'), $name);;
+
 
         try {
             Artikel::where('id', $artikel)->update($input);
             return redirect('/artikel')->with('status', 'Berhasil mengubah data');
         } catch (\Throwable $th) {
             return $th;
-            return redirect('/artikel/'.$artikel.'/edit')->with('status', 'Gagal mengubah data');
+            return redirect('/artikel/' . $artikel . '/edit')->with('status', 'Gagal mengubah data');
         }
     }
 

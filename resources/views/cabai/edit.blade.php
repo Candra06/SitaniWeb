@@ -80,10 +80,15 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="password">Estimasi Panen</label>
-                                            <input type="text" class="form-control @error('estimasi_panen') is-invalid @enderror"
-                                                value="{{ $cabai->estimasi_panen }}" name="estimasi_panen" placeholder="Nama Latin">
-                                            @error('estimasi_panen')
+                                            <label for="password">Status</label>
+                                            <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                                <option>Pilih status</option>
+                                                <option value="Show" {{  $cabai->status == 'Show' ? 'selected' : '' }}>Show
+                                                </option>
+                                                <option value="Hidden {{  $cabai->status == 'Hidden' ? 'selected' : '' }}">
+                                                    Hidden</option>
+                                            </select>
+                                            @error('status')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>

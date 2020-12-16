@@ -2,7 +2,7 @@
     <!-- Logo Header -->
     <div class="logo-header" data-background-color="blue">
 
-        <a href="index.html" class="logo">
+        <a href="{{ url('/dashboard') }}" class="logo">
             <img src="{{ url('/') }}/assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -32,15 +32,15 @@
                 <li class="nav-item dropdown hidden-caret">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                         <div class="avatar-sm">
-                            <img src="{{ url('/') }}/assets/img/profile.jpg" class="avatar-img rounded-circle">
+                            <img src="{{ url('/') }}/assets/img/profile.png" class="avatar-img rounded-circle">
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-user animated fadeIn">
                         <div class="dropdown-user-scroll scrollbar-outer">
                             <li>
                                 <div class="user-box">
-                                    <div class="avatar-lg"><img src="{{ url('/') }}/assets/img/profile.jpg"
-                                            alt="image profile" class="avatar-img rounded"></div>
+                                    <div class="avatar-lg"><img src="{{ url('/') }}/assets/img/profile.png"
+                                            alt="image profile" class="avatar-img rounded-circle"></div>
                                     <div class="u-text">
                                         <h4>{{ session('nama') }}</h4>
                                         <p class="text-muted">{{ session('email') }}</p><a
@@ -62,6 +62,6 @@
 
 
     </nav>
-    
+
     <!-- End Navbar -->
 </div>

@@ -78,8 +78,8 @@
                             <input type="checkbox" class="custom-control-input" id="rememberme">
                             <label class="custom-control-label m-0" for="rememberme">Remember Me</label>
                         </div>
-                        <input type="submit" value="Sign In"
-                            class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">
+                        <input type="submit" value="Login" style="background-color: red!important"
+                            class="btn btn-danger col-md-5 float-right mt-3 mt-sm-0 fw-bold">
 
                     </div>
                 </form>

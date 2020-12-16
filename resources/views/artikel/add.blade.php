@@ -107,7 +107,7 @@
                                                 <option>Pilih status</option>
                                                 <option value="Show" {{ old('status') == 'Show' ? 'selected' : '' }}>Show
                                                 </option>
-                                                <option value="Hidden {{ old('status') == 'Hidden' ? 'selected' : '' }}">
+                                                <option value="Hide {{ old('status') == 'Hide' ? 'selected' : '' }}">
                                                     Hidden</option>
                                             </select>
                                             @error('status')

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
-use App\Artikel;
-use App\Http\Controllers\Controller;
+use App\Lahan;
 use Illuminate\Http\Request;
 
-class ArtikelController extends Controller
+class LahanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +14,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $data = Artikel::where('status', 'Show')->get();
-        if ($data) {
-            return response()->json(['status' => '200', 'data' => $data], 200);
-        } else {
-            return response()->json(['status' => '401', 'data' => 'Gagal mendapatkan data'], 401);
-        }
+        //
     }
 
     /**
@@ -47,29 +41,21 @@ class ArtikelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Lahan  $lahan
      * @return \Illuminate\Http\Response
      */
-    public function show($artikel)
+    public function show(Lahan $lahan)
     {
-        $data = Artikel::leftJoin('users', 'users.id', 'artikel.penulis')
-        ->select('artikel.*', 'users.nama as writer')
-        ->where('artikel.id', $artikel)
-        ->first();
-        if ($data) {
-            return response()->json(['status' => '200', 'data' => $data], 200);
-        } else {
-            return response()->json(['status' => '401', 'data' => 'Gagal mendapatkan data'], 401);
-        }
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Lahan  $lahan
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Lahan $lahan)
     {
         //
     }
@@ -78,10 +64,10 @@ class ArtikelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Lahan  $lahan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Lahan $lahan)
     {
         //
     }
@@ -89,10 +75,10 @@ class ArtikelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Lahan  $lahan
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Lahan $lahan)
     {
         //
     }

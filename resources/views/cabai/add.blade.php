@@ -65,12 +65,11 @@
                                         </div>
 
                                     </div>
-
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="email2">Nama Latin</label>
                                             <input type="text" class="form-control @error('nama_latin') is-invalid @enderror"
-                                                value="{{ old('nama_latin') }}" name="nama_latin" placeholder="Nama Latin">
+                                                value="{{ old('nama_latin') }}" name="nama_latin" placeholder="Nama Latin Cabai">
                                             @error('nama_latin')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
@@ -79,10 +78,15 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="password">Esitimasi Panen</label>
-                                            <input type="text" class="form-control @error('estimasi_panen') is-invalid @enderror"
-                                                value="{{ old('estimasi_panen') }}" name="estimasi_panen" placeholder="Estimasi Panen (Hari)">
-                                            @error('estimasi_panen')
+                                            <label for="password">Status</label>
+                                            <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                                <option>Pilih status</option>
+                                                <option value="Show" {{ old('status') == 'Show' ? 'selected' : '' }}>Show
+                                                </option>
+                                                <option value="Hidden {{ old('status') == 'Hidden' ? 'selected' : '' }}">
+                                                    Hidden</option>
+                                            </select>
+                                            @error('status')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>

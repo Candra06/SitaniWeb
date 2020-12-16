@@ -108,7 +108,7 @@
                                                 <option>Pilih status</option>
                                                 <option value="Show" {{ $artikel->status == 'Show' ? 'selected' : '' }}>Show
                                                 </option>
-                                                <option value="Hidden" {{ $artikel->status == 'Hidden' ? 'selected' : '' }}>
+                                                <option value="Hide" {{ $artikel->status == 'Hide' ? 'selected' : '' }}>
                                                     Hidden</option>
                                             </select>
                                             @error('status')

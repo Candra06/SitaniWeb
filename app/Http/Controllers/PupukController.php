@@ -81,7 +81,7 @@ class PupukController extends Controller
      */
     public function show(Pupuk $pupuk)
     {
-        //
+        return view('pupuk.detail', compact('pupuk'));
     }
 
     /**

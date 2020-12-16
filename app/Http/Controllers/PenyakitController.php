@@ -40,22 +40,19 @@ class PenyakitController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
         $request->validate([
             'nama' => 'required|max:30',
-            'jenis' => 'required',
-            'ciri_ciri' => 'required',
-            'penanggulangan' => 'required',
-            'pencegahan' => 'required',
+            'deskripsi' => 'required',
+            'penanganan' => 'required',
             'gambar' => 'file|between:0,2048|mimes:png,jpg,jpeg',
             'status' => 'required',
         ]);
         $fileType = $request->file('gambar')->extension();
         $name = Str::random(8) . '.' . $fileType;
         $input['nama'] = $request['nama'];
-        $input['jenis'] = $request['jenis'];
-        $input['ciri_ciri'] = $request['ciri_ciri'];
-        $input['penanggulangan'] = $request['penanggulangan'];
-        $input['pencegahan'] = $request['pencegahan'];
+        $input['deskripsi'] = $request['deskripsi'];
+        $input['penanganan'] = $request['penanganan'];
         $input['status'] = $request['status'];
         $input['gambar'] = Storage::putFileAs('hama', $request->file('gambar'), $name);
 
@@ -77,7 +74,8 @@ class PenyakitController extends Controller
      */
     public function show(Penyakit $penyakit)
     {
-
+        // return $penyakit;
+        return view('penyakit.detail', compact('penyakit'));
     }
 
     /**
@@ -102,20 +100,16 @@ class PenyakitController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:30',
-            'jenis' => 'required',
-            'ciri_ciri' => 'required',
-            'penanggulangan' => 'required',
-            'pencegahan' => 'required',
+            'deskripsi' => 'required',
+            'penanganan' => 'required',
             'gambar' => 'file|between:0,2048|mimes:png,jpg,jpeg',
             'status' => 'required',
         ]);
         $fileType = $request->file('gambar')->extension();
         $name = Str::random(8) . '.' . $fileType;
         $input['nama'] = $request['nama'];
-        $input['jenis'] = $request['jenis'];
-        $input['ciri_ciri'] = $request['ciri_ciri'];
-        $input['penanggulangan'] = $request['penanggulangan'];
-        $input['pencegahan'] = $request['pencegahan'];
+        $input['deskripsi'] = $request['deskripsi'];
+        $input['penanganan'] = $request['penanganan'];
         $input['status'] = $request['status'];
         $input['gambar'] = Storage::putFileAs('hama', $request->file('gambar'), $name);
 

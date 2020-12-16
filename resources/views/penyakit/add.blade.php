@@ -58,72 +58,8 @@
                                         <div class="form-group">
                                             <label for="email2">Nama</label>
                                             <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                                value="{{ old('nama') }}" name="nama" placeholder="Nama Pupuk"
-                                                value="{{ old('nama') }}">
+                                                value="{{ old('nama') }}" name="nama" placeholder="Nama Penyakit">
                                             @error('nama')
-                                                <label class="mt-1" style="color: red">{{ $message }}</label>
-                                            @enderror
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="password">Jenis</label>
-                                            <select class="form-control" name="jenis" id="exampleFormControlSelect1">
-                                                <option>Pilih Jenis</option>
-                                                <option value="Penyakit" {{ old('jenis') == 'Penyakit' ? 'selected' : '' }}>
-                                                    Penyakit
-                                                </option>
-                                                <option value="Hama" {{ old('jenis') == 'Hama' ? 'selected' : '' }}>
-                                                    Hama</option>
-                                            </select>
-                                            @error('jenis')
-                                                <label class="mt-1" style="color: red">{{ $message }}</label>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="password">Ciri-ciri</label>
-                                            <textarea class="form-control @error('ciri_ciri') is-invalid @enderror"
-                                                id="summernote" name="ciri_ciri">{{ old('ciri_ciri') }}</textarea>
-                                            @error('ciri_ciri')
-                                                <label class="mt-1" style="color: red">{{ $message }}</label>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="password">Penanggulangan</label>
-                                            <textarea class="form-control @error('penanggulangan') is-invalid @enderror"
-                                                id="penanggulangan"
-                                                name="penanggulangan">{{ old('penanggulangan') }}</textarea>
-                                            @error('penanggulangan')
-                                                <label class="mt-1" style="color: red">{{ $message }}</label>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="password">Pencegahan</label>
-                                            <textarea cols="4"
-                                                class="form-control @error('pencegahan') is-invalid @enderror"
-                                                id="pencegahan" name="pencegahan">{{ old('pencegahan') }}</textarea>
-                                            @error('pencegahan')
-                                                <label class="mt-1" style="color: red">{{ $message }}</label>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="email2">Gambar</label>
-                                            <input type="file" name="gambar" id="input-file-now-custom-1"
-                                                class="dropify @error('gambar') is-invalid @enderror"
-                                                {{--
-                                                data-default-file="../assets/plugins/dropify/src/images/test-image-1.jpg"
-                                                --}} />
-                                            @error('gambar')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>
@@ -144,6 +80,43 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="password">Deskripsi</label>
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror"
+                                                id="summernote" name="deskripsi">{{ old('deskripsi') }}</textarea>
+                                            @error('deskripsi')
+                                                <label class="mt-1" style="color: red">{{ $message }}</label>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="password">Penanganan</label>
+                                            <textarea class="form-control @error('penanganan') is-invalid @enderror"
+                                                id="penanganan"
+                                                name="penanganan">{{ old('penanganan') }}</textarea>
+                                            @error('penanganan')
+                                                <label class="mt-1" style="color: red">{{ $message }}</label>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email2">Gambar</label>
+                                            <input type="file" name="gambar" id="input-file-now-custom-1"
+                                                class="dropify @error('gambar') is-invalid @enderror"
+                                                {{--
+                                                data-default-file="../assets/plugins/dropify/src/images/test-image-1.jpg"
+                                                --}} />
+                                            @error('gambar')
+                                                <label class="mt-1" style="color: red">{{ $message }}</label>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -182,7 +155,7 @@
             $('#summernote').summernote();
         });
         $(document).ready(function() {
-            $('#penanggulangan').summernote();
+            $('#penanganan').summernote();
         });
         $(document).ready(function() {
             $('#pencegahan').summernote();

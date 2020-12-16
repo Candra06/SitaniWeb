@@ -3,7 +3,7 @@
         <div class="sidebar-content">
             <div class="user">
                 <div class="avatar-sm float-left mr-2">
-                    <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                    <img src="../assets/img/profile.png" alt="..." class="avatar-img rounded-circle">
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -49,22 +49,13 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item {{ Request::segment(1) == 'pupuk' ? 'active' : '' }} submenu">
-                    <a data-toggle="collapse" href="#pupuk">
+
+                <li class="nav-item {{ Request::segment(1) == 'pupuk' ? 'active' : '' }}">
+                    <a href="{{ url('/pupuk') }}" class="collapsed">
                         <i class="fas fa-leaf"></i>
                         <p>Pupuk dan Pestisida</p>
-                        <span class="caret"></span>
                     </a>
-                    <div class="collapse {{ Request::segment(1) == 'pupuk' || Request::segment(1) == 'pupuk' ? 'show' : '' }}"
-                        id="pupuk">
-                        <ul class="nav nav-collapse">
-                            <li class="{{ Request::segment(1) == 'pupuk' ? 'active' : '' }}">
-                                <a href="{{ url('/pupuk') }}">
-                                    <span class="sub-item ">Data Pupuk dan Pestisida</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </li>
                 <li
                     class="nav-item {{ Request::segment(1) == 'punyakit' || Request::segment(1) == 'penanganan' ? 'active' : '' }} submenu">
@@ -73,7 +64,7 @@
                         <p>Penyakit dan Hama</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse {{ Request::segment(1) == 'penyakit' || Request::segment(1) == 'penanganan' ? 'show' : '' }}"
+                    <div class="collapse {{ Request::segment(1) == 'penyakit' || Request::segment(1) == 'gejala' ? 'show' : '' }}"
                         id="tables">
                         <ul class="nav nav-collapse">
                             <li class="{{ Request::segment(1) == 'penyakit' ? 'active' : '' }}">
@@ -81,30 +72,22 @@
                                     <span class="sub-item ">Data Penyakit</span>
                                 </a>
                             </li>
-                            <li class="{{ Request::segment(1) == 'penanganan' ? 'active' : '' }}">
-                                <a href="{{ url('/penanganan') }}">
-                                    <span class="sub-item ">Data Penanganan</span>
+                            <li class="{{ Request::segment(1) == 'gejala' ? 'active' : '' }}">
+                                <a href="{{ url('/gejala') }}">
+                                    <span class="sub-item ">Data Gejala</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item {{ Request::segment(1) == 'cabai' ? 'active' : '' }} submenu">
-                    <a data-toggle="collapse" href="#forms">
+                <li class="nav-item {{ Request::segment(1) == 'cabai' ? 'active' : '' }}">
+                    <a href="{{ url('/cabai') }}" class="collapsed">
                         <i class="fas fa-air-freshener"></i>
-                        <p>Cabai</p>
-                        <span class="caret"></span>
+                        <p>Jenis Cabai</p>
                     </a>
-                    <div class="collapse {{ Request::segment(1) == 'cabai' ? 'show' : '' }}" id="forms">
-                        <ul class="nav nav-collapse">
-                            <li class="{{ Request::segment(1) == 'cabai' ? 'active' : '' }}">
-                                <a href="{{ url('/cabai') }}">
-                                    <span class="sub-item ">Data Cabai</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </li>
+
                 <li class="nav-item {{ Request::segment(1) == 'artikel' ? 'active' : '' }}">
                     <a href="{{ url('/artikel') }}" class="collapsed">
                         <i class="fas fa-book"></i>

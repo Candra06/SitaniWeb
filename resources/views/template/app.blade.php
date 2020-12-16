@@ -99,11 +99,11 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>Apakah anda yakin ingin keluar dari akun ini?</p>
+                  <p>Apakah anda yakin ingin keluar?</p>
                 </div>
                 <div class="modal-footer">
-                  <a href="{{ url('logout') }}"><button type="button" class="btn btn-success">Oke</button></a>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <a href="{{ url('logout') }}"><button type="button" class="btn btn-success">Iya</button></a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                 </div>
               </div>
             </div>

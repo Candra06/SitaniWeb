@@ -40,12 +40,12 @@ class CabaiController extends Controller
         $request->validate([
             'jenis_cabai' => 'required',
             'nama_latin' => 'required',
-            'estimasi_panen' => 'required',
+            'status' => 'required',
         ]);
 
         $input['jenis_cabai'] = $request['jenis_cabai'];
         $input['nama_latin'] = $request['nama_latin'];
-        $input['estimasi_panen'] = $request['estimasi_panen'];
+        $input['status'] = $request['status'];
 
         try {
             Cabai::create($input);
@@ -90,12 +90,12 @@ class CabaiController extends Controller
         $request->validate([
             'jenis_cabai' => 'required',
             'nama_latin' => 'required',
-            'estimasi_panen' => 'required',
+            'status' => 'required',
         ]);
 
         $input['jenis_cabai'] = $request['jenis_cabai'];
         $input['nama_latin'] = $request['nama_latin'];
-        $input['estimasi_panen'] = $request['estimasi_panen'];
+        $input['status'] = $request['status'];
 
         try {
             Cabai::where('id', $cabai->id)->update($input);

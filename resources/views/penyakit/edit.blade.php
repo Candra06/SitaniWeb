@@ -59,56 +59,45 @@
                                         <div class="form-group">
                                             <label for="email2">Nama</label>
                                             <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                                value="{{ $penyakit->nama }}" name="nama" placeholder="Nama Pupuk"
-                                                value="{{ $penyakit->nama }}">
+                                                value="{{ $penyakit->nama }}" name="nama" placeholder="Nama Pupuk">
                                             @error('nama')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>
 
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="password">Jenis</label>
-                                            <select class="form-control" name="jenis" id="exampleFormControlSelect1">
-                                                <option>Pilih Jenis</option>
-                                                <option value="Penyakit" {{$penyakit->jenis == 'Penyakit' ? 'selected' : '' }}>Penyakit
-                                                </option>
-                                                <option value="Hama" {{$penyakit->jenis == 'Hama' ? 'selected' : '' }}>
-                                                    Hama</option>
-                                            </select>
-                                            @error('jenis')
-                                                <label class="mt-1" style="color: red">{{ $message }}</label>
-                                            @enderror
-                                        </div>
-                                    </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="password">Ciri-ciri</label>
-                                            <textarea class="form-control @error('ciri_ciri') is-invalid @enderror"
-                                                id="summernote" name="ciri_ciri">{{ $penyakit->ciri_ciri }}</textarea>
-                                            @error('ciri_ciri')
+                                            <label for="password">Status</label>
+                                            <select class="form-control" name="status" id="exampleFormControlSelect1">
+                                                <option>Pilih status</option>
+                                                <option value="Show" {{ $penyakit->status == 'Show' ? 'selected' : '' }}>Show
+                                                </option>
+                                                <option value="Hidden" {{ $penyakit->status == 'Hidden' ? 'selected' : '' }}>
+                                                    Hidden</option>
+                                            </select>
+                                            @error('status')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="password">Penanggulangan</label>
-                                            <textarea class="form-control @error('penanggulangan') is-invalid @enderror"
-                                                id="penanggulangan" name="penanggulangan">{{ $penyakit->penanggulangan }}</textarea>
-                                            @error('penanggulangan')
+                                            <label for="password">Deskripsi</label>
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror"
+                                                id="summernote" name="deskripsi">{{ $penyakit->deskripsi }}</textarea>
+                                            @error('deskripsi')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="password">Pencegahan</label>
-                                            <textarea cols="4" class="form-control @error('pencegahan') is-invalid @enderror" id="pencegahan"
-                                                name="pencegahan">{{ $penyakit->pencegahan }}</textarea>
-                                            @error('pencegahan')
+                                            <label for="password">Penanganan</label>
+                                            <textarea class="form-control @error('penanganan') is-invalid @enderror"
+                                                id="penanganan" name="penanganan">{{ $penyakit->penanganan }}</textarea>
+                                            @error('penanganan')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>
@@ -125,21 +114,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="password">Status</label>
-                                            <select class="form-control" name="status" id="exampleFormControlSelect1">
-                                                <option>Pilih status</option>
-                                                <option value="Show" {{ $penyakit->status == 'Show' ? 'selected' : '' }}>Show
-                                                </option>
-                                                <option value="Hidden" {{ $penyakit->status == 'Hidden' ? 'selected' : '' }}>
-                                                    Hidden</option>
-                                            </select>
-                                            @error('status')
-                                                <label class="mt-1" style="color: red">{{ $message }}</label>
-                                            @enderror
-                                        </div>
-                                    </div>
+
                                 </div>
 
                             </div>
@@ -177,10 +152,7 @@
             $('#summernote').summernote();
         });
         $(document).ready(function() {
-            $('#penanggulangan').summernote();
-        });
-        $(document).ready(function() {
-            $('#pencegahan').summernote();
+            $('#penanganan').summernote();
         });
 
     </script>

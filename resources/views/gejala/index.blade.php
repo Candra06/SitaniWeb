@@ -6,11 +6,11 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold">Cabai</h2>
-                        <h5 class="text-white op-7 mb-2">Free Bootstrap 4 Admin Dashboard</h5>
+                        <h2 class="text-white pb-2 fw-bold">Gejala Penyakit</h2>
+                        <h5 class="text-white op-7 mb-2">List data gejala pada penyakit</h5>
                     </div>
                     <div class="ml-md-auto py-2 py-md-0">
-                        <a href="{{ url('/cabai/create') }}" class="btn btn-secondary btn-round">Tambah Data</a>
+                        <a href="{{ url('/gejala/create') }}" class="btn btn-secondary btn-round">Tambah Data</a>
                     </div>
                 </div>
             </div>
@@ -33,35 +33,26 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Data Cabai</h4>
+                            <h4 class="card-title">Data Gejala Penyakit</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="basic-datatables" class="display table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Nama Latin</th>
-                                            <th>Status</th>
+                                            <th>Nama Penyakit</th>
+                                            <th>Gejala</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
-                                                {{-- <td><a href="{{ url('user/'. $item->id )}}">{{ $item->nama }}</a></td> --}}
-                                                <td>{{ $item->jenis_cabai }}</td>
-                                                <td>{{ $item->nama_latin}}</td>
-                                                <td>{{ $item->status}}</td>
+                                                <td>{{ $item->nama }}</td>
+                                                <td>{{ $item->nama_gejala}}</td>
                                                 <td class="mt-auto">
-                                                    <a href="{{ url('/cabai/'.$item->id.'/edit')}}" class="btn btn-xs btn-info mr-2 "><i class="fas fa-edit"></i></a>
-                                                    {{-- <form action="{{ url('user/'.$item->id) }}" method="POST" class="form-inline mt-auto">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="">
-                                                        <a href="{{ url('/user/'.$item->id.'/edit')}}" class="btn btn-xs btn-info mr-2 "><i class="fas fa-edit"></i></a>
-                                                        <button type="submit" class="btn btn-xs btn-primary"><i class="fas fa-trash"></i></button>
-                                                    </form> --}}
+                                                    <a href="{{ url('/gejala/'.$item->id.'/edit')}}" class="btn btn-xs btn-info mr-2 "><i class="fas fa-edit"></i></a>
+
                                                 </td>
                                             </tr>
                                         @endforeach

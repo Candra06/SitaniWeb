@@ -16,13 +16,13 @@
                             <i class="flaticon-right-arrow text-white"></i>
                         </li>
                         <li class="nav-item text-white">
-                            <a href="#" class="text-white">Data Pupuk dan Pestisida</a>
+                            <a href="{{url('/pupuk')}}" class="text-white">Data Pupuk dan Pestisida</a>
                         </li>
                         <li class="separator text-white">
                             <i class="flaticon-right-arrow text-white"></i>
                         </li>
                         <li class="nav-item text-white">
-                            <a href="#" class="text-white">Tambah Data</a>
+                            <a href="#" class="text-white">Edit Data</a>
                         </li>
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
                         @csrf
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Tambah Data</h4>
+                                <h4 class="card-title">Ubah Data</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">

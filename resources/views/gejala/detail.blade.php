@@ -63,11 +63,16 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email2">Nama</label>
-                                        <h2>{{ $penyakit->nama }}</h2>
+                                        <p>{{ $penyakit->nama }}</p>
                                     </div>
 
                                 </div>
-
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password">Jenis</label>
+                                        <p>{{ $penyakit->jenis }}</p>
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="password">Status</label>
@@ -77,16 +82,21 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="password">Ciri-ciri</label>
-                                        {!! $penyakit->deskripsi !!}
+                                        {!! $penyakit->ciri_ciri !!}
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="password">Penanganan</label>
-                                        {!! $penyakit->penanganan !!}
+                                        <label for="password">Penanggulangan</label>
+                                        {!! $penyakit->penanggulangan !!}
                                     </div>
                                 </div>
-
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="password">Pencegahan</label>
+                                        {!! $penyakit->pencegahan !!}
+                                    </div>
+                                </div>
 
 
                             </div>
