@@ -142,7 +142,7 @@
                         <p>Apakah anda yakin ingin membatalkan proses?</p>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ url('/pupuk') }}"><button type="button" class="btn btn-success">Ya</button></a>
+                        <a href="{{ url('/artikel') }}"><button type="button" class="btn btn-success">Ya</button></a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                     </div>
                 </div>

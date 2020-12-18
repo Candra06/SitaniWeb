@@ -107,7 +107,7 @@
                                                 <option>Pilih status</option>
                                                 <option value="Show" {{ old('status') == 'Show' ? 'selected' : '' }}>Show
                                                 </option>
-                                                <option value="Hide {{ old('status') == 'Hide' ? 'selected' : '' }}">
+                                                <option value="Hide" {{ old('status') == 'Hide' ? 'selected' : '' }}>
                                                     Hidden</option>
                                             </select>
                                             @error('status')
@@ -141,7 +141,7 @@
                         <p>Apakah anda yakin ingin membatalkan proses?</p>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ url('/pupuk') }}"><button type="button" class="btn btn-success">Ya</button></a>
+                        <a href="{{ url('/artikel') }}"><button type="button" class="btn btn-success">Ya</button></a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                     </div>
                 </div>

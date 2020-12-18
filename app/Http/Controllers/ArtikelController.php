@@ -45,7 +45,7 @@ class ArtikelController extends Controller
             'konten' => 'required',
             'status' => 'required',
             'thumbnail' => 'required|max:60',
-            'gambar' => 'required',
+            'gambar' => 'file|between:0,2048|mimes:png,jpg,jpeg',
         ]);
 
         $fileType = $request->file('gambar')->extension();
@@ -103,7 +103,7 @@ class ArtikelController extends Controller
             'konten' => 'required',
             'status' => 'required',
             'thumbnail' => 'required|max:60',
-            'gambar' => 'file|mimes:jpg,png,jpeg',
+            'gambar' => 'file|between:0,2048|mimes:png,jpg,jpeg',
         ]);
         if ($request['gambar'] != null || $request['gambar'] != '') {
             $fileType = $request->file('gambar')->extension();
