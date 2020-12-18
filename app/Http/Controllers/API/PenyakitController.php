@@ -55,11 +55,9 @@ class PenyakitController extends Controller
     public function show($penyakit)
     {
         $data = Penyakit::where('id', $penyakit)->first();
-        $pupuk = Penanggulangan::leftJoin('pupuk', 'pupuk.id', 'penanggulangan.id_pupuk')
-            ->select('pupuk.nama_pupuk', 'penanggulangan.id', 'pupuk.type')
-            ->where('id_penyakit', $penyakit)->get();
-        if ($data && $pupuk) {
-            return response()->json(['status' => '200','data' => $data, 'pupuk' => $pupuk], 200);
+
+        if ($data) {
+            return response()->json(['status' => '200','data' => $data], 200);
         } else {
             return response()->json(['status' => '401','data' => 'Gagal mendapatkan data'], 401);
         }

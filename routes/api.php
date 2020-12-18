@@ -28,5 +28,12 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('pupuk', 'API\PupukController@index');
     Route::get('pupuk/{pupuk}', 'API\PupukController@show');
     Route::get('artikel', 'API\ArtikelController@index');
+    Route::get('cabai', 'API\CabaiController@index');
     Route::get('artikel/{artikel}', 'API\ArtikelController@show');
+    Route::post('addLahan', 'API\LahanController@store');
+    Route::post('addPanen', 'API\PanenController@store');
+    Route::put('update/{id}', 'API\LahanController@update');
+    Route::get('getLahan', 'API\LahanController@index');
+    Route::get('gejala/{id}', 'API\GejalaController@index');
+    Route::get('detailLahan/{id}', 'API\LahanController@show');
 });

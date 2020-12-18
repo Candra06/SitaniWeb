@@ -25,4 +25,6 @@ Route::group(['middleware' => 'CheckAdmin'], function () {
     Route::resource('cabai', 'CabaiController');
     Route::resource('artikel', 'ArtikelController');
     Route::resource('gejala', 'GejalaController');
+    Route::resource('lahan', 'LahanController');
+    Route::resource('rekomendasi', 'RekomendasiPupukController');
 });

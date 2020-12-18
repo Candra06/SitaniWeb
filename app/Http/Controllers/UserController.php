@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Artikel;
+use App\Penyakit;
+use App\Pupuk;
 use App\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -16,7 +19,11 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard.index');
+        $petani = User::where('role', 'petani')->count();
+        $penyakit = Penyakit::count();
+        $pupuk = Pupuk::count();
+        $artikel = Artikel::count();
+        return view('dashboard.index', compact('petani', 'pupuk', 'penyakit', 'artikel'));
     }
 
     public function logout(Request $request)

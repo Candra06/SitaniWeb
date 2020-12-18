@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Lahan;
+use App\Http\Controllers\Controller;
 use App\Panen;
 use Illuminate\Http\Request;
 
-class LahanController extends Controller
+class PanenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,7 @@ class LahanController extends Controller
      */
     public function index()
     {
-        try {
-            $data = Lahan::leftJoin('users', 'users.id', 'lahan.id_petani')->select('users.nama', 'lahan.*')->get();
-            // return $data;
-            return view('lahan.index', compact('data'));
-        } catch (\Throwable $th) {
-            return $th;
-        }
+        //
     }
 
     /**
@@ -42,35 +36,37 @@ class LahanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = [
+            'id_lahan' => $request['id_lahan'],
+            'tanggal_panen' => $request['tanggal_panen'],
+            'hasil' => $request['hasil']
+        ];
+        try {
+            Panen::create($input);
+            return response()->json(['status' => '200', 'data' => 'Input Berhasil'], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['status' => '400', 'data' => 'Input Gagal'], 401);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Lahan  $lahan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lahan $lahan)
+    public function show($id)
     {
-        try {
-            $data = Lahan::leftJoin('cabai as c', 'c.id', 'lahan.id_cabai')->select('lahan.*', 'c.jenis_cabai')->where('lahan.id', $lahan->id)->first();
-            $total = Panen::where('id_lahan',$lahan->id)->sum('hasil');
-            $panen = Panen::where('id_lahan', $lahan->id)->get();
-
-            return view('lahan.detail', compact('data', 'total', 'panen'));
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Lahan  $lahan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lahan $lahan)
+    public function edit($id)
     {
         //
     }
@@ -79,10 +75,10 @@ class LahanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Lahan  $lahan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lahan $lahan)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -90,10 +86,10 @@ class LahanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Lahan  $lahan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lahan $lahan)
+    public function destroy($id)
     {
         //
     }

@@ -6,12 +6,10 @@
             <div class="page-inner py-5">
                 <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                     <div>
-                        <h2 class="text-white pb-2 fw-bold">Rekomendasi Pupuk</h2>
-                        <h5 class="text-white op-7 mb-2">List data rekomendasi pupuk</h5>
+                        <h2 class="text-white pb-2 fw-bold">Lahan Petani</h2>
+                        <h5 class="text-white op-7 mb-2">List data lahan petani</h5>
                     </div>
-                    <div class="ml-md-auto py-2 py-md-0">
-                        <a href="{{ url('/rekomendasi/create') }}" class="btn btn-secondary btn-round">Tambah Data</a>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -33,27 +31,27 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Data Rekomendasi Pupuk</h4>
+                            <h4 class="card-title">Data Lahan</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="basic-datatables" class="display table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Nama Penyakit</th>
-                                            <th>Nama Pestisida</th>
-                                            <th>Aksi</th>
+                                            <th>Nama Lahan</th>
+                                            <th>Petani</th>
+                                            <th>Status</th>
+                                            {{-- <th>Aksi</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($data as $item)
                                             <tr>
-                                                <td><a href="{{url('/rekomendasi/'. $item->id) }}"> {{ $item->penyakit }}</a></td>
-                                                <td>{{ $item->pupuk}}</td>
-                                                <td class="mt-auto">
-                                                    <a href="{{ url('/rekomendasi/'.$item->id.'/edit')}}" class="btn btn-xs btn-info mr-2 "><i class="fas fa-edit"></i></a>
+                                                <td><a href="{{ url('lahan/'. $item->id )}}">{{ $item->nama_lahan }}</a></td>
 
-                                                </td>
+                                                <td>{{ $item->nama}}</td>
+                                                <td>{{ $item->status}}</td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>

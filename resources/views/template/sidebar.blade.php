@@ -32,22 +32,21 @@
                     <h4 class="text-section">Master Data</h4>
                 </li>
 
-                <li class="nav-item {{ Request::segment(1) == 'user' ? 'active' : '' }} submenu">
-                    <a data-toggle="collapse" href="#base">
+
+                <li class="nav-item {{ Request::segment(1) == 'user' ? 'active' : '' }}">
+                    <a href="{{ url('/user') }}" class="collapsed">
                         <i class="fas fa-user-alt"></i>
-                        <p>Penguna</p>
-                        <span class="caret"></span>
+                        <p>Pengguna</p>
                     </a>
-                    <div class="collapse {{ Request::segment(1) == 'user' || Request::segment(1) == 'user' || Request::segment(1) == 'tentor' ? 'show' : '' }}"
-                        id="base">
-                        <ul class="nav nav-collapse">
-                            <li class="{{ Request::segment(1) == 'user' ? 'active' : '' }}">
-                                <a href="{{ url('/user') }}">
-                                    <span class="sub-item ">Data Pengguna</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
+                </li>
+
+                <li class="nav-item {{ Request::segment(1) == 'lahan' ? 'active' : '' }}">
+                    <a href="{{ url('/lahan') }}" class="collapsed">
+                        <i class="fas fa-th-large"></i>
+                        <p>Data Lahan</p>
+                    </a>
+
                 </li>
 
                 <li class="nav-item {{ Request::segment(1) == 'pupuk' ? 'active' : '' }}">
@@ -58,13 +57,13 @@
 
                 </li>
                 <li
-                    class="nav-item {{ Request::segment(1) == 'punyakit' || Request::segment(1) == 'penanganan' ? 'active' : '' }} submenu">
+                    class="nav-item {{ Request::segment(1) == 'penyakit' || Request::segment(1) == 'gejala' ? 'active' : '' }} submenu">
                     <a data-toggle="collapse" href="#tables">
                         <i class="fas fa-bug"></i>
                         <p>Penyakit dan Hama</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse {{ Request::segment(1) == 'penyakit' || Request::segment(1) == 'gejala' ? 'show' : '' }}"
+                    <div class="collapse {{ Request::segment(1) == 'penyakit' || Request::segment(1) == 'gejala' || Request::segment(1) == 'rekomendasi'? 'show' : '' }}"
                         id="tables">
                         <ul class="nav nav-collapse">
                             <li class="{{ Request::segment(1) == 'penyakit' ? 'active' : '' }}">
@@ -75,6 +74,11 @@
                             <li class="{{ Request::segment(1) == 'gejala' ? 'active' : '' }}">
                                 <a href="{{ url('/gejala') }}">
                                     <span class="sub-item ">Data Gejala</span>
+                                </a>
+                            </li>
+                            <li class="{{ Request::segment(1) == 'rekomendasi' ? 'active' : '' }}">
+                                <a href="{{ url('/rekomendasi') }}">
+                                    <span class="sub-item ">Rekomendasi Pupuk</span>
                                 </a>
                             </li>
                         </ul>

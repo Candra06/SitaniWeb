@@ -5,7 +5,7 @@
         <div class="page-inner py-5 panel-header bg-primary-gradient">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
                 <div class="">
-                    <h2 class="text-white pb-2 fw-bold">Data Gejala Penyakit</h2>
+                    <h2 class="text-white pb-2 fw-bold">Rekomendasi Pupuk</h2>
                     <ul class="breadcrumbs">
                         <li class="nav-home text-white">
                             <a href="#">
@@ -16,7 +16,7 @@
                             <i class="flaticon-right-arrow text-white"></i>
                         </li>
                         <li class="nav-item text-white">
-                            <a href="{{ url('/gejala') }}" class="text-white">Data Gejala Penyakit</a>
+                            <a href="{{ url('/rekomendasi') }}" class="text-white">Data Rekomendasi Pupuk</a>
                         </li>
                         <li class="separator text-white">
                             <i class="flaticon-right-arrow text-white"></i>
@@ -46,7 +46,7 @@
             @endif
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{ url('/gejala/'.$data->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('/rekomendasi/'.$data->id) }}" method="POST" enctype="multipart/form-data">
                         @method('put')
                         @csrf
                         <div class="card">
@@ -58,8 +58,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email2">Penyakit</label>
-                                            <select class="form-control @error('id_penyakit') is-invalid @enderror"
-                                                name="id_penyakit" id="exampleFormControlSelect1">
+                                            <select class="form-control @error('penyakit') is-invalid @enderror" name="penyakit" id="exampleFormControlSelect1">
                                                 <option value="">Pilih Penyakit</option>
                                                 @foreach ($penyakit as $item)
                                                     <option value="{{ $item->id }}"
@@ -77,12 +76,28 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="password">Nama Gejala</label>
-                                            <input type="text"
-                                                class="form-control @error('nama_gejala') is-invalid @enderror"
-                                                value="{{ $data->nama_gejala }}" name="nama_gejala"
-                                                placeholder="Nama Gejala">
-                                            @error('nama_gejala')
+                                            <label for="email2">Pestisida</label>
+                                            <select class="form-control @error('pupuk') is-invalid @enderror" name="pupuk" id="exampleFormControlSelect1">
+                                                <option value="">Pilih Pestisida</option>
+                                                @foreach ($pupuk as $item)
+                                                    <option value="{{ $item->id }}"
+                                                        {{ $data->id_pupuk == $item->id ? 'selected' : '' }}>
+                                                        {{ $item->nama_pupuk }}
+                                                    </option>
+
+                                                @endforeach
+                                            </select>
+                                            @error('id_penyakit')
+                                                <label class="mt-1" style="color: red">{{ $message }}</label>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="password">Aturan Pakai</label>
+                                            <textarea class="form-control @error('aturan_pakai') is-invalid @enderror"
+                                                id="summernote" name="aturan_pakai">{{ $data->aturan_pakai }}</textarea>
+                                            @error('aturan_pakai')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
                                         </div>
@@ -123,50 +138,12 @@
         </div>
     </div>
     <script>
-        $(document).ready(function() {
+         $(document).ready(function() {
             $('#summernote').summernote();
         });
-        $(document).ready(function() {
-            $('#penanggulangan').summernote();
-        });
-        $(document).ready(function() {
-            $('#pencegahan').summernote();
-        });
+
 
     </script>
 
-    <script>
-        $(document).ready(function() {
-            // Basic
-            $('.dropify').dropify();
 
-
-            // Used events
-            var drEvent = $('#input-file-events').dropify();
-
-            drEvent.on('dropify.beforeClear', function(event, element) {
-                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-            });
-
-            drEvent.on('dropify.afterClear', function(event, element) {
-                alert('File deleted');
-            });
-
-            drEvent.on('dropify.errors', function(event, element) {
-                console.log('Has Errors');
-            });
-
-            var drDestroy = $('#input-file-to-destroy').dropify();
-            drDestroy = drDestroy.data('dropify')
-            $('#toggleDropify').on('click', function(e) {
-                e.preventDefault();
-                if (drDestroy.isDropified()) {
-                    drDestroy.destroy();
-                } else {
-                    drDestroy.init();
-                }
-            })
-        });
-
-    </script>
 @endsection
