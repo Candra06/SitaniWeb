@@ -116,7 +116,7 @@ class PupukController extends Controller
             'status' => 'required',
         ]);
         // return $request;
-        if ($request['gambar'] == null) {
+        if ($request['gambar']  != null || $request['gambar'] != '') {
             $fileType = $request->file('gambar')->extension();
             $name = Str::random(8) . '.' . $fileType;
             $input['gambar'] = Storage::putFileAs('pestisida', $request->file('gambar'), $name);
