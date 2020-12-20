@@ -105,13 +105,15 @@ class PenyakitController extends Controller
             'gambar' => 'file|between:0,2048|mimes:png,jpg,jpeg',
             'status' => 'required',
         ]);
-        $fileType = $request->file('gambar')->extension();
-        $name = Str::random(8) . '.' . $fileType;
+        if ($request['gambar'] != null) {
+            $fileType = $request->file('gambar')->extension();
+            $name = Str::random(8) . '.' . $fileType;
+            $input['gambar'] = Storage::putFileAs('hama', $request->file('gambar'), $name);
+        }
         $input['nama'] = $request['nama'];
         $input['deskripsi'] = $request['deskripsi'];
         $input['penanganan'] = $request['penanganan'];
         $input['status'] = $request['status'];
-        $input['gambar'] = Storage::putFileAs('hama', $request->file('gambar'), $name);
 
         try {
             // return $input;
@@ -119,7 +121,7 @@ class PenyakitController extends Controller
             return redirect('/penyakit')->with('status', 'Berhasil mengubah data');
         } catch (\Throwable $th) {
             return $th;
-            return redirect('/penyakit/'.$penyakit->id.'/edit')->with('status', $th);
+            return redirect('/penyakit/' . $penyakit->id . '/edit')->with('status', $th);
         }
     }
 

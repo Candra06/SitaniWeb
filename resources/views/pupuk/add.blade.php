@@ -70,7 +70,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="email2">Harga</label>
-                                            <input type="text" class="form-control @error('harga') is-invalid @enderror"
+                                            <input type="number" required class="form-control @error('harga') is-invalid @enderror"
                                                 value="{{ old('harga') }}" name="harga" placeholder="Harga pasaran">
                                             @error('harga')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
@@ -81,11 +81,11 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password">Tipe</label>
-                                            <select class="form-control" name="tipe" id="exampleFormControlSelect1">
-                                                <option>Pilih Tipe</option>
+                                            <select class="form-control @error('tipe') is-invalid @enderror" name="tipe" id="exampleFormControlSelect1">
+                                                <option value="">Pilih Tipe</option>
                                                 <option value="Pupuk" {{ old('tipe') == 'Pupuk' ? 'selected' : '' }}>Pupuk
                                                 </option>
-                                                <option value="Pestisida {{ old('tipe') == 'Pestisida' ? 'selected' : '' }}">
+                                                <option value="Pestisida" {{ old('tipe') == 'Pestisida' ? 'selected' : '' }}>
                                                     Pestisida</option>
                                             </select>
                                             @error('tipe')
@@ -96,11 +96,11 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password">Jenis</label>
-                                            <select class="form-control" name="jenis" id="exampleFormControlSelect1">
-                                                <option>Pilih Jenis</option>
+                                            <select class="form-control @error('jenis') is-invalid @enderror" name="jenis" id="exampleFormControlSelect1">
+                                                <option value="">Pilih Jenis</option>
                                                 <option value="Organik" {{ old('jenis') == 'Organik' ? 'selected' : '' }}>Organik
                                                 </option>
-                                                <option value="Kimia {{ old('jenis') == 'Kimia' ? 'selected' : '' }}">
+                                                <option value="Kimia" {{ old('jenis') == 'Kimia' ? 'selected' : '' }}>
                                                     Kimia</option>
                                             </select>
                                             @error('jenis')

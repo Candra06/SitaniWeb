@@ -41,7 +41,7 @@ class PupukController extends Controller
     {
         $request->validate([
             'nama' => 'required|max:30',
-            'harga' => 'required|max:6',
+            'harga' => 'required|numeric',
             'tipe' => 'required',
             'jenis' => 'required',
             'deskripsi' => 'required',
