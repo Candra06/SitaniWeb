@@ -116,8 +116,12 @@ class PupukController extends Controller
             'status' => 'required',
         ]);
         // return $request;
-        $fileType = $request->file('gambar')->extension();
-        $name = Str::random(8) . '.' . $fileType;
+        if ($request['gambar'] == null) {
+            $fileType = $request->file('gambar')->extension();
+            $name = Str::random(8) . '.' . $fileType;
+            $input['gambar'] = Storage::putFileAs('pestisida', $request->file('gambar'), $name);
+        }
+
         $input['nama_pupuk'] = $request['nama'];
         $input['harga'] = $request['harga'];
         $input['type'] = $request['tipe'];
@@ -126,7 +130,6 @@ class PupukController extends Controller
         $input['aturan_pakai'] = $request['aturan'];
         $input['kandungan'] = $request['kandungan'];
         $input['status'] = $request['status'];
-        $input['gambar'] = Storage::putFileAs('pestisida', $request->file('gambar'), $name);
 
         try {
             // return $input;
