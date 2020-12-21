@@ -73,7 +73,6 @@ class UserController extends Controller
         $input['kecamatan'] = $request['kecamatan'];
         $input['alamat'] = $request['alamat'];
         $input['telepon'] = $request['telepon'];
-        $input['username'] = $request['email'];
         $input['role'] = 'Petani';
 
         try {
@@ -101,7 +100,6 @@ class UserController extends Controller
         $input['kecamatan'] = $request['kecamatan'];
         $input['alamat'] = $request['alamat'];
         $input['telepon'] = $request['telepon'];
-        $input['username'] = $request['email'];
 
         try {
             User::where('id', $id)->update($input);

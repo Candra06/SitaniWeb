@@ -115,7 +115,7 @@ class PupukController extends Controller
             'gambar' => 'file|between:0,2048|mimes:png,jpg,jpeg',
             'status' => 'required',
         ]);
-        // return $request;
+
         if ($request['gambar']  != null || $request['gambar'] != '') {
             $fileType = $request->file('gambar')->extension();
             $name = Str::random(8) . '.' . $fileType;
