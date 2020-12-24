@@ -104,8 +104,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password">Status</label>
-                                            <select class="form-control" name="status" id="exampleFormControlSelect1">
-                                                <option>Pilih status</option>
+                                            <select class="form-control @error('status') is-invalid @enderror" name="status" id="exampleFormControlSelect1">
+                                                <option value="">Pilih status</option>
                                                 <option value="Show" {{ $artikel->status == 'Show' ? 'selected' : '' }}>Show
                                                 </option>
                                                 <option value="Hide" {{ $artikel->status == 'Hide' ? 'selected' : '' }}>

@@ -82,7 +82,7 @@
                                         <div class="form-group">
                                             <label for="password">Status</label>
                                             <select class="form-control" name="status" id="exampleFormControlSelect1">
-                                                <option>Pilih status</option>
+                                                <option value="">Pilih status</option>
                                                 <option value="Show" {{  $cabai->status == 'Show' ? 'selected' : '' }}>Show
                                                 </option>
                                                 <option value="Hidden {{  $cabai->status == 'Hidden' ? 'selected' : '' }}">

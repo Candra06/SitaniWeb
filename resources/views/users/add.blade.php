@@ -126,7 +126,7 @@
                                         <div class="form-group">
                                             <label for="password">Role</label>
                                             <select class="form-control" name="role" id="exampleFormControlSelect1">
-                                                <option>Pilih Role</option>
+                                                <option value="">Pilih Role</option>
                                                 <option value="Admin" {{ old('role') == 'Admin' ? 'selected' : '' }}>Admin
                                                 </option>
                                                 <option value="Petani {{ old('role') == 'Petani' ? 'selected' : '' }}">

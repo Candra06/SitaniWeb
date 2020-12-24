@@ -30,10 +30,10 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card card-profile">
-                        <div class="card-header" style="background-image: url('../assets/img/blogpost.jpg')">
+                        <div class="card-header" style="background-image: url('{{url('/')}}/assets/img/blogpost.jpg')">
                             <div class="profile-picture">
                                 <div class="avatar avatar-xl">
-                                    <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                                    <img src="{{url('/')}}/assets/img/profile.png" alt="..." class="avatar-img rounded-circle">
                                 </div>
                             </div>
                         </div>
@@ -91,12 +91,6 @@
                                         <p>{{$data->email}}</p>
                                     </div>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="password">Username</label>
-                                        <p>{{$data->username}}</p>
-                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">

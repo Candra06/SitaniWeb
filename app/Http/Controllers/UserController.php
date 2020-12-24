@@ -75,7 +75,6 @@ class UserController extends Controller
         $input['kecamatan'] = $request['kecamatan'];
         $input['alamat'] = $request['alamat'];
         $input['telepon'] = $request['telepon'];
-        $input['username'] = '-';
         $input['role'] = 'Petani';
 
         try {
@@ -136,7 +135,6 @@ class UserController extends Controller
         $input['kecamatan'] = $request['kecamatan'];
         $input['alamat'] = $request['alamat'];
         $input['telepon'] = $request['telepon'];
-        $input['username'] = $request['email'];
         // $input['role'] = $request['role'];
         if (session('id') == $id) {
 
@@ -144,8 +142,8 @@ class UserController extends Controller
                 User::where('id', $id)->update($input);
                 session()->put('email', $input['email']);
                 session()->put('nama', $input['nama']);
-                session()->put('username', $input['username']);
-                return redirect('/dashboard')->with('message', 'Berhasil mengubah data');
+                session()->put('username', $input['email']);
+                return redirect('/user/' . $id );
             } catch (\Throwable $th) {
                 return $th;
                 return redirect('/user/' . $id . '/edit')->with('status', 'Gagal mengubah data');
@@ -154,7 +152,7 @@ class UserController extends Controller
 
             try {
                 User::where('id', $id)->update($input);
-                return redirect('/user')->with('status', 'Berhasil mengubah data');
+                return redirect('/user/' . $id )->with('status', 'Berhasil mengubah data');
             } catch (\Throwable $th) {
                 return $th;
                 return redirect('/user/' . $id . '/edit')->with('status', 'Gagal mengubah data');
@@ -193,7 +191,7 @@ class UserController extends Controller
                     session()->put('login', true);
                     session()->put('email', $data->email);
                     session()->put('nama', $data->nama);
-                    session()->put('username', $data->username);
+                    session()->put('username', $data->email);
                     session()->put('id', $data->id);
                     return redirect('dashboard')->with('message', 'Selamat datang!');
                 } else {

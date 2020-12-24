@@ -155,7 +155,7 @@
                                         <div class="form-group">
                                             <label for="password">Status</label>
                                             <select class="form-control" name="status" id="exampleFormControlSelect1">
-                                                <option>Pilih status</option>
+                                                <option value="">Pilih status</option>
                                                 <option value="Show" {{ old('status') == 'Show' ? 'selected' : '' }}>Show
                                                 </option>
                                                 <option value="Hidden {{ old('status') == 'Hidden' ? 'selected' : '' }}">

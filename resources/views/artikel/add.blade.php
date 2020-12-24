@@ -57,9 +57,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="email2">Judul</label>
-                                            <input type="text" class="form-control @error('judul') is-invalid @enderror"
-                                                value="{{ old('judul') }}" name="judul" placeholder="Judul Artikel"
-                                                value="{{ old('judul') }}">
+                                            <input required type="text" class="form-control @error('judul') is-invalid @enderror"
+                                                value="{{ old('judul') }}" name="judul" placeholder="Judul Artikel">
                                             @error('judul')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
                                             @enderror
@@ -70,7 +69,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="email2">Thumbnail</label>
-                                            <input type="text" class="form-control @error('thumbnail') is-invalid @enderror"
+                                            <input type="text" required class="form-control @error('thumbnail') is-invalid @enderror"
                                                 value="{{ old('thumbnail') }}" name="thumbnail" placeholder="thumbnail Artikel">
                                             @error('thumbnail')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
@@ -81,7 +80,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="password">Konten</label>
-                                            <textarea class="form-control @error('konten') is-invalid @enderror"
+                                            <textarea required class="form-control @error('konten') is-invalid @enderror"
                                                 id="konten" col="5" name="konten">{{ old('konten') }}</textarea>
                                             @error('konten')
                                                 <label class="mt-1" style="color: red">{{ $message }}</label>
@@ -103,8 +102,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password">Status</label>
-                                            <select class="form-control" name="status" id="exampleFormControlSelect1">
-                                                <option>Pilih status</option>
+                                            <select class="form-control @error('status') is-invalid @enderror" name="status" id="exampleFormControlSelect1">
+                                                <option value="">Pilih status</option>
                                                 <option value="Show" {{ old('status') == 'Show' ? 'selected' : '' }}>Show
                                                 </option>
                                                 <option value="Hide" {{ old('status') == 'Hide' ? 'selected' : '' }}>
